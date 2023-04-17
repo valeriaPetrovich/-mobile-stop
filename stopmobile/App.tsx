@@ -9,7 +9,8 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import LogIn from './src/pages/LogIn/logIn';
+// import LogIn from './src/pages/LogIn/logIn';
+import Stops from './src/pages/Stops/stops';
 
 import {
   Colors,
@@ -33,7 +34,8 @@ function App(): JSX.Element {
   return (
     <Provider store={store}>
     <SafeAreaView style={backgroundStyle}>
-   <LogIn/>
+      <Stops/>
+   {/* <LogIn/> */}
     </SafeAreaView>
     </Provider>
   );
