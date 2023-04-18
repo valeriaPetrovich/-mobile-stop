@@ -1,25 +1,13 @@
-import React, {useState} from 'react';
-import styles from './navigationPanel.style';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-  View,
-} from 'react-native';
-import {Input, Button} from 'react-native-elements';
-
-
-//style={styles.MenuScreenCopywriteText}
+import React from 'react';
+//import styles from './navigationPanel.style';
+import {NavigationContainer} from '@react-navigation/native';
+import StackNavigation from './StackNavigation/StackNavigation';
 
 function NavigationPanel() {
-;
-
   return (
-    <ScrollView>
-    
-    </ScrollView>
+    <NavigationContainer>
+      <StackNavigation />
+    </NavigationContainer>
   );
 }
 

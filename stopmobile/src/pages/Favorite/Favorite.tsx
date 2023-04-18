@@ -1,28 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import styles from './Stops.style';
-import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
+import styles from './Favorite.style';
 import {
-  SafeAreaView,
   ScrollView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
   View,
   TouchableOpacity
 } from 'react-native';
-import {Input, Button, Text,Icon} from 'react-native-elements';
+import {Input,Text} from 'react-native-elements';
 import {useDispatch, useSelector} from 'react-redux';
-import { setStopsSlise } from '../../store/redusers/stopsSlice';
+import { setFavoriteSlise } from '../../store/redusers/favoriteSlice';
 
 //style={styles.MenuScreenCopywriteText}
 
-function Stops() {
+function Favorite() {
   const [stop, setStop] = useState('');
   const dispatch = useDispatch();
  useEffect(()=>{
-    dispatch(setStopsSlise(stop))
+    dispatch(setFavoriteSlise(stop))
  })
-  const search = useSelector((state) => state.stop.stops);
+  const search = useSelector((state) => state.favorite.favorite);
   const strets = ['пр. Независимости, 4','ул. Бобруйская, 5','ул. Ленинградская, 8','ул. Ленинградская, 16','ул. К.Маркса, 31','ул. Ленинградская, 14','Курчатоваб 8','Курчатоваб 6','ул. Ленинградская, 14','ул. Ленинградская, 6', 'str','ул. Бобруйская, 5','ул. Ленинградская, 8','ул. Ленинградская, 16','ул. К.Маркса, 31','ул. Ленинградская, 14','Курчатоваб 8','Курчатоваб 6','ул. Ленинградская, 14','ул. Ленинградская, 6', 'str','ул. Бобруйская, 5','ул. Ленинградская, 8','ул. Ленинградская, 16','ул. К.Маркса, 31','ул. Ленинградская, 14','Курчатоваб 8','Курчатоваб 6','ул. Ленинградская, 14','ул. Ленинградская, 6', 'str'];
   const filtStatus = strets.filter((e) => {
       return e.toLowerCase().includes(search); 
@@ -49,4 +44,4 @@ function Stops() {
   );
 }
 
-export default Stops;
+export default Favorite;
