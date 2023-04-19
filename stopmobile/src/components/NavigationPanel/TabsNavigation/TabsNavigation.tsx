@@ -6,6 +6,8 @@ import Parking from '../../../pages/Parking/Parking';
 import SvgAuto from '../../../assets/auto';
 import SvgStar from '../../../assets/star';
 import SvgMarker from '../../../assets/marker';
+import MapY from '../../../pages/MapY/MapY';
+import SvgMap from '../../../assets/map-marker';
 
 const Tab = createBottomTabNavigator();
 const TabsNavigation = () => {
@@ -37,6 +39,14 @@ const TabsNavigation = () => {
             }
           }}
       name="Parcking" component={Parking} />
+       <Tab.Screen
+        options={{
+            title: '',
+            tabBarIcon: () => {
+              return <SvgMap />
+            }
+          }}
+      name="Map" component={MapY} />
     </Tab.Navigator>
   );
 };
