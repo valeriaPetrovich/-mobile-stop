@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './Parking.styles';
-import {View,Text,SafeAreaView} from 'react-native';
+import {View,Text,ScrollView} from 'react-native';
+import useStreets from '../../hooks/useStreets';
 
-function Parking() {
+function Parking({ route }) {
+  const { item } = route.params;
   const parkingPage = [
     {
       id: 1,
@@ -37,6 +39,9 @@ function Parking() {
       status: true,
     },
   ];
+ 
+
+  const {streets} = useStreets();
 
   const parkingItem = parkingPage.map((e)=>{
     return (
@@ -44,13 +49,21 @@ function Parking() {
         </View>
     )
   })
-
-  return (
-    <View style={styles.backgroundStyle}>
+  const streetsParck = streets.map((e)=>{
+    if(e.id===item){
+      return(
+        <View style={styles.backgroundStyle}>
+          <Text>{e.name}</Text>
         <View  style={styles.parkingBlock}>
     {parkingItem}
   </View>
     </View>
+      )
+    }
+   })
+  return (
+    <ScrollView>{streetsParck}</ScrollView>
+    
     
   )
   ;

@@ -16,6 +16,9 @@ function Stops({navigation}) {
   const [stop, setStop] = useState('');
   const [click, setClick] = useState(false);
   const {fetchStreets,streets} = useStreets();
+  const handlePress = (item) => {
+    navigation.navigate('Parking', { item });
+  };
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,14 +34,13 @@ function Stops({navigation}) {
   const stretsItems = filtStatus.map(e => {
     //setClick(click ? false : true)
     return (
-      <TouchableOpacity key={Math.random()} style={styles.button} onPress={() => navigation.navigate('Parking')}>
+      <TouchableOpacity key={Math.random()} style={styles.button} onPress={() => handlePress(e.id)}>
         <Text>{e.name}</Text>
         <TouchableOpacity onPress={() => setClick(click ? false : true)}>
           {click ?  <SvgLightStar /> : <SvgBoldStar />}
         </TouchableOpacity>
       </TouchableOpacity>
     );
-    // return <Button key={Math.random()} style={styles.button} title={e}></Button>
   });
 
   return (
