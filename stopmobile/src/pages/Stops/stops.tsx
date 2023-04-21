@@ -9,9 +9,10 @@ import SvgLightStar from '../../assets/lightStar';
 import { strets } from '../../constant/data';
 import useStreets from '../../hooks/useStreets';
 
+
 //style={styles.MenuScreenCopywriteText}
 
-function Stops() {
+function Stops({navigation}) {
   const [stop, setStop] = useState('');
   const [click, setClick] = useState(false);
   const {fetchStreets,streets} = useStreets();
@@ -28,9 +29,9 @@ function Stops() {
     return e.name.toLowerCase().includes(search);
   });
   const stretsItems = filtStatus.map(e => {
-    
+    //setClick(click ? false : true)
     return (
-      <TouchableOpacity key={Math.random()} style={styles.button}>
+      <TouchableOpacity key={Math.random()} style={styles.button} onPress={() => navigation.navigate('Parking')}>
         <Text>{e.name}</Text>
         <TouchableOpacity onPress={() => setClick(click ? false : true)}>
           {click ?  <SvgLightStar /> : <SvgBoldStar />}

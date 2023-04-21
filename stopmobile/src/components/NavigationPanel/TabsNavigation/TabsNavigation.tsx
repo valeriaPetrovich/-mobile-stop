@@ -38,7 +38,7 @@ const TabsNavigation = () => {
               return <SvgAuto />
             }
           }}
-      name="Parcking" component={Parking} />
+      name="Parking" component={Parking} />
        {/* <Tab.Screen
         options={{
             title: '',
