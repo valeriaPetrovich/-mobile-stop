@@ -5,16 +5,16 @@ const initialState = {
 	value: [],
 };
 
-export const favoriteSlice = createSlice({
+export const streetsSlice = createSlice({
 	name: 'results',
 	initialState,
 	reducers: {
-		setFavoriteSlise: (state, action) => {
+		setStreetsSlise: (state, action) => {
 			state.value = cloneDeep(action.payload);
 		},
 	}
 });
 
-export default favoriteSlice.reducer;
+export default streetsSlice.reducer;
 
-export const { setFavoriteSlise } = favoriteSlice.actions;
+export const { setStreetsSlise } = streetsSlice.actions;

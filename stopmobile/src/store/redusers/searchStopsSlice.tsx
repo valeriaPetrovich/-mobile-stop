@@ -5,16 +5,16 @@ const initialState = {
 	stops: [],
 };
 
-export const stopsSlice = createSlice({
+export const searchStopsSlice = createSlice({
 	name: 'results',
 	initialState,
 	reducers: {
-		setStopsSlise: (state, action) => {
+		setSearchStopsSlise: (state, action) => {
 			state.stops = cloneDeep(action.payload);
 		},
 	}
 });
 
-export default stopsSlice.reducer;
+export default searchStopsSlice.reducer;
 
-export const { setStopsSlise } = stopsSlice.actions;
+export const { setSearchStopsSlise } = searchStopsSlice.actions;

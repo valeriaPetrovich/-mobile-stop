@@ -17,7 +17,7 @@ const TabsNavigation = () => {
         options={{
           title: '',
           tabBarIcon: () => {
-            return <SvgStar />
+            return <SvgMarker /> 
           }
         }}
         name="Stops"
@@ -27,7 +27,7 @@ const TabsNavigation = () => {
         options={{
             title: '',
             tabBarIcon: () => {
-              return <SvgMarker />
+              return <SvgStar />
             }
           }}
       name="Favorite" component={Favorite} />
@@ -39,14 +39,14 @@ const TabsNavigation = () => {
             }
           }}
       name="Parcking" component={Parking} />
-       <Tab.Screen
+       {/* <Tab.Screen
         options={{
             title: '',
             tabBarIcon: () => {
               return <SvgMap />
             }
           }}
-      name="Map" component={MapY} />
+      name="Map" component={MapY} /> */}
     </Tab.Navigator>
   );
 };

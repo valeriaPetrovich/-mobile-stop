@@ -7,25 +7,25 @@ import {
 } from 'react-native';
 import {Input,Text} from 'react-native-elements';
 import {useDispatch, useSelector} from 'react-redux';
-import { setFavoriteSlise } from '../../store/redusers/favoriteSlice';
-
-//style={styles.MenuScreenCopywriteText}
+import { setSearchFavoriteSlise } from '../../store/redusers/searchFavoriteSlice';
+import useFavorite from '../../hooks/useFavorite';
 
 function Favorite() {
   const [stop, setStop] = useState('');
   const dispatch = useDispatch();
+  const {fetchFavorite,favorites} = useFavorite()
  useEffect(()=>{
-    dispatch(setFavoriteSlise(stop))
- })
+    dispatch(setSearchFavoriteSlise(stop))
+    fetchFavorite();
+ },[])
   const search = useSelector((state) => state.favorite.favorite);
-  const strets = ['пр. Независимости, 4','ул. Бобруйская, 5','ул. Ленинградская, 8','ул. Ленинградская, 16','ул. К.Маркса, 31','ул. Ленинградская, 14','Курчатоваб 8','Курчатоваб 6','ул. Ленинградская, 14','ул. Ленинградская, 6', 'str','ул. Бобруйская, 5','ул. Ленинградская, 8','ул. Ленинградская, 16','ул. К.Маркса, 31','ул. Ленинградская, 14','Курчатоваб 8','Курчатоваб 6','ул. Ленинградская, 14','ул. Ленинградская, 6', 'str','ул. Бобруйская, 5','ул. Ленинградская, 8','ул. Ленинградская, 16','ул. К.Маркса, 31','ул. Ленинградская, 14','Курчатоваб 8','Курчатоваб 6','ул. Ленинградская, 14','ул. Ленинградская, 6', 'str'];
-  const filtStatus = strets.filter((e) => {
-      return e.toLowerCase().includes(search); 
+  const filtStatus = favorites.filter((e) => {
+      return e.name.toLowerCase().includes(search); 
   })
   const stretsItems = filtStatus.map((e)=>{
     return(
       <TouchableOpacity key={Math.random()} style={styles.button}>
-        <Text>{e}</Text>
+        <Text>{e.name}</Text>
         </TouchableOpacity>
     )
       // return <Button key={Math.random()} style={styles.button} title={e}></Button>

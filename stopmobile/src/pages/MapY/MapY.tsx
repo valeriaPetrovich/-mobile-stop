@@ -6,7 +6,7 @@ import styles from './MapY.style';
 
 YaMap.setLocale('ru_RU'); 
 const MapY = () => {
- const [marker, setMarker] = useState([])
+ //const [marker, setMarker] = useState([])
 
   return (
     <YaMap
@@ -20,7 +20,6 @@ const MapY = () => {
         zoom: 7,
         azimuth: 0,
         }}
-        onMapPress={(e)=>console.log(e)}
     style={styles.MapStyles}
         >           
 
