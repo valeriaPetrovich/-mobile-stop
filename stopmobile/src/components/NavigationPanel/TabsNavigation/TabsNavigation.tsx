@@ -31,14 +31,14 @@ const TabsNavigation = () => {
             }
           }}
       name="Favorite" component={Favorite} />
-      <Tab.Screen
+      {/* <Tab.Screen
         options={{
             title: '',
             tabBarIcon: () => {
               return <SvgAuto />
             }
           }}
-      name="Parking" component={Parking} />
+      name="Parking" component={Parking} /> */}
        {/* <Tab.Screen
         options={{
             title: '',

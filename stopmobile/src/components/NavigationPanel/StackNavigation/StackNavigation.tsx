@@ -14,6 +14,7 @@ function StackNavigation() {
   return (
     <Stack.Navigator screenOptions={{headerShown:false}}>
     <Stack.Screen name="Tabs" component={TabsNavigation} />
+    <Stack.Screen name="Parking" component={Parking} />
   </Stack.Navigator>
   );
 }

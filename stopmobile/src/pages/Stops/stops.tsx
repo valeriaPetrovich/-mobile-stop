@@ -6,8 +6,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import { setSearchStopsSlise } from '../../store/redusers/searchStopsSlice';
 import SvgBoldStar from '../../assets/boldStar';
 import SvgLightStar from '../../assets/lightStar';
-import { strets } from '../../constant/data';
 import useStreets from '../../hooks/useStreets';
+import Header from '../../components/Header/Header';
 
 
 //style={styles.MenuScreenCopywriteText}
@@ -46,6 +46,7 @@ function Stops({navigation}) {
   return (
     <View>
       <View style={styles.inputBlock}>
+      <Header children={'Stops'}/>
         <Input placeholder="Choose an address" onChangeText={e => setStop(e)} />
         {/* <Button title='input' onPress={(()=>setSrops())} ></Button> */}
       </View>

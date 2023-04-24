@@ -9,11 +9,15 @@ import {Input,Text} from 'react-native-elements';
 import {useDispatch, useSelector} from 'react-redux';
 import { setSearchFavoriteSlise } from '../../store/redusers/searchFavoriteSlice';
 import useFavorite from '../../hooks/useFavorite';
+import Header from '../../components/Header/Header';
 
-function Favorite() {
+function Favorite({navigation}) {
   const [stop, setStop] = useState('');
   const dispatch = useDispatch();
   const {fetchFavorite,favorites} = useFavorite()
+  const handlePress = (item) => {
+    navigation.navigate('Parking', { item });
+  };
  useEffect(()=>{
     dispatch(setSearchFavoriteSlise(stop))
     fetchFavorite();
@@ -24,7 +28,7 @@ function Favorite() {
   })
   const stretsItems = filtStatus.map((e)=>{
     return(
-      <TouchableOpacity key={Math.random()} style={styles.button}>
+      <TouchableOpacity key={Math.random()} style={styles.button} onPress={() => handlePress(e.id)}>
         <Text>{e.name}</Text>
         </TouchableOpacity>
     )
@@ -34,6 +38,7 @@ function Favorite() {
   return (
     <View>
         <View style={styles.inputBlock}>
+        <Header children={'Favorite'}/>
         <Input placeholder="Choose an address" onChangeText={e => setStop(e)} />
         {/* <Button title='input' onPress={(()=>setSrops())} ></Button> */}
         </View>

@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './Parking.styles';
-import {View,Text,ScrollView} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import useStreets from '../../hooks/useStreets';
+import Header from '../../components/Header/Header';
 
-function Parking({ route }) {
-  const { item } = route.params;
+function Parking({route}) {
+  const {item} = route.params;
+  console.log(item)
   const parkingPage = [
     {
       id: 1,
@@ -39,34 +41,25 @@ function Parking({ route }) {
       status: true,
     },
   ];
- 
 
   const {streets} = useStreets();
 
-  const parkingItem = parkingPage.map((e)=>{
+  const parkingItem = parkingPage.map(e => {
     return (
-        <View key={e.id} style={e.status? styles.green : styles.red} >
-        </View>
-    )
-  })
-  const streetsParck = streets.map((e)=>{
-    if(e.id===item){
-      return(
+      <View key={e.id} style={e.status ? styles.green : styles.red}></View>
+    );
+  });
+  const streetsParck = streets.map(e => {
+    if (e.id === item) {
+      return (
         <View style={styles.backgroundStyle}>
-          <Text>{e.name}</Text>
-        <View  style={styles.parkingBlock}>
-    {parkingItem}
-  </View>
-    </View>
-      )
-    }
-   })
-  return (
-    <ScrollView>{streetsParck}</ScrollView>
-    
-    
-  )
-  ;
+          <Header children={e.name}/>
+          <View style={styles.parkingBlock}>{parkingItem}</View>
+        </View>
+      );
+    } 
+  });
+  return <ScrollView>{streetsParck}</ScrollView>;
 }
 
 export default Parking;
