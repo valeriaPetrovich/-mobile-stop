@@ -8,6 +8,8 @@ import SvgStar from '../../../assets/star';
 import SvgMarker from '../../../assets/marker';
 import MapY from '../../../pages/MapY/MapY';
 import SvgMap from '../../../assets/map-marker';
+import LogIn from '../../../pages/LogIn/logIn';
+import SvgFavorite from '../../../assets/favorite';
 
 const Tab = createBottomTabNavigator();
 const TabsNavigation = () => {
@@ -31,14 +33,6 @@ const TabsNavigation = () => {
             }
           }}
       name="Favorite" component={Favorite} />
-      {/* <Tab.Screen
-        options={{
-            title: '',
-            tabBarIcon: () => {
-              return <SvgAuto />
-            }
-          }}
-      name="Parking" component={Parking} /> */}
        {/* <Tab.Screen
         options={{
             title: '',

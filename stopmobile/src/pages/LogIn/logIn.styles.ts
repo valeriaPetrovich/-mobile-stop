@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-    blockLogin:{
-display:'flex',
-marginVertical:'70%',
-flexDirection:'column',
-gap:50,
-
-    }
+  blockLogin: {
+    flex:1,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 50,
+    justifyContent:'center',
+  },
 });
