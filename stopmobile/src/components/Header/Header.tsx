@@ -1,19 +1,16 @@
 import React, {useCallback} from 'react';
 import styles from './Header.style';
 import {
-  ScrollView,
-  View,
-  TouchableOpacity,
-  GestureResponderEvent,
+  View
 } from 'react-native';
-import {Text, Button} from 'react-native-elements';
-import SvgOut from '../../assets/out';
+import {Text} from 'react-native-elements';
 
-function Header({children, back}) {
+function Header({children, back, logout}) {
   return (
     <View style={styles.HeaderBlock}>
       {back}
       <Text style={styles.HeaderTitle}>{children}</Text>
+      {logout}
     </View>
   );
 }

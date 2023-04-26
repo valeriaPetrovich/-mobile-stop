@@ -25,7 +25,8 @@ function Parking({route, navigation}) {
               <TouchableOpacity onPress={() => navigation.goBack()}>
                 <SvgOut />
               </TouchableOpacity>
-            }></Header>
+            }
+            logout={<></>}></Header>
 
           <View style={styles.parkingBlock}>{parkingItem}</View>
         </View>
