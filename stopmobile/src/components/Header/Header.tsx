@@ -1,22 +1,20 @@
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useCallback} from 'react';
 import styles from './Header.style';
 import {
   ScrollView,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  GestureResponderEvent,
 } from 'react-native';
 import {Text, Button} from 'react-native-elements';
 import SvgOut from '../../assets/out';
 
-function Header({children}) {
+function Header({children, back}) {
   return (
-   <View style={styles.HeaderBlock}>
-    <TouchableOpacity>
-        <SvgOut/>
-    </TouchableOpacity>
-    {/* <Button title="Go back" onPress={() => navigation.goBack()} /> */}
-    <Text style={styles.HeaderTitle}>{children}</Text>
-   </View>
+    <View style={styles.HeaderBlock}>
+      {back}
+      <Text style={styles.HeaderTitle}>{children}</Text>
+    </View>
   );
 }
 

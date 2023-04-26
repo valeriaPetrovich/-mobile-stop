@@ -4,10 +4,8 @@ import {
 } from 'react-native';
 import { setupStore } from './src/store';
 import { Provider } from 'react-redux';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NavigationPanel from './src/components/NavigationPanel/navigationPanel';
 
-const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
 

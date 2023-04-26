@@ -46,7 +46,7 @@ function Stops({navigation}) {
   return (
     <View>
       <View style={styles.inputBlock}>
-      <Header children={'Stops'}/>
+      <Header children={'Stops'} back={<></>}/>
         <Input placeholder="Choose an address" onChangeText={e => setStop(e)} />
         {/* <Button title='input' onPress={(()=>setSrops())} ></Button> */}
       </View>

@@ -38,7 +38,7 @@ function Favorite({navigation}) {
   return (
     <View>
         <View style={styles.inputBlock}>
-        <Header children={'Favorite'}/>
+        <Header children={'Favorite'} back={<></>}/>
         <Input placeholder="Choose an address" onChangeText={e => setStop(e)} />
         {/* <Button title='input' onPress={(()=>setSrops())} ></Button> */}
         </View>

@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './Parking.styles';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView,Button,TouchableOpacity} from 'react-native';
 import useStreets from '../../hooks/useStreets';
 import Header from '../../components/Header/Header';
+import SvgOut from '../../assets/out';
 
-function Parking({route}) {
+function Parking({route,navigation}) {
   const {item} = route.params;
   console.log(item)
   const parkingPage = [
@@ -53,7 +54,9 @@ function Parking({route}) {
     if (e.id === item) {
       return (
         <View style={styles.backgroundStyle}>
-          <Header children={e.name}/>
+          
+          <Header children={e.name} back={<TouchableOpacity onPress={() => navigation.goBack()}><SvgOut/></TouchableOpacity>}></Header>
+          
           <View style={styles.parkingBlock}>{parkingItem}</View>
         </View>
       );
