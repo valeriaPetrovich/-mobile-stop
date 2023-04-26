@@ -21,7 +21,7 @@ function Favorite({navigation}) {
  useEffect(()=>{
     dispatch(setSearchFavoriteSlise(stop))
     fetchFavorite();
- },[])
+ },[stop])
   const search = useSelector((state) => state.favorite.favorite);
   const filtStatus = favorites.filter((e) => {
       return e.name.toLowerCase().includes(search); 
@@ -40,7 +40,6 @@ function Favorite({navigation}) {
         <View style={styles.inputBlock}>
         <Header children={'Favorite'} back={<></>}/>
         <Input placeholder="Choose an address" onChangeText={e => setStop(e)} />
-        {/* <Button title='input' onPress={(()=>setSrops())} ></Button> */}
         </View>
       <ScrollView>
         {stretsItems}

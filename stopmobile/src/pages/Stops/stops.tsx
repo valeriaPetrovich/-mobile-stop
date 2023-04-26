@@ -24,7 +24,7 @@ function Stops({navigation}) {
   useEffect(() => {
     dispatch(setSearchStopsSlise (stop));
     fetchStreets();
-  },[]);
+  },[stop]);
   const search = useSelector(state => state.stop.stops);
 
   
