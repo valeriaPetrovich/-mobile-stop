@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import {Text} from 'react-native-elements';
 
+
 function Header({children, back, logout}) {
   return (
     <View style={styles.HeaderBlock}>
