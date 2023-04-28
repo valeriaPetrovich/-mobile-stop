@@ -6,6 +6,7 @@ import {Input, Button, CheckBox} from 'react-native-elements';
 import RegistrationSubTitle from '../../../components/RegistrationSubTitle/RegistrationSubTitle';
 import TextInput from '../../../components/TextInput/TextInput';
 import InputButton from '../../../components/Button/InputButton';
+import Dropdown from '../../../components/Dropdown/Dropdown';
 
 const logo = require('../../../assets/logo/MySpace.png');
 
@@ -36,7 +37,7 @@ function RegistrationLocation({navigation}) {
           onChangeText={e => setUserName(e)}
           errorMessage={error ? 'Введите пожалуйста своё имя' : ''}
         />
-        {/* <Dropdown></Dropdown> для определения города где есть адреса */}
+        <Dropdown/>
       </View>
       <View style={{marginTop: 380}}>
         <InputButton children={'Следующий шаг'} onPress={pressButton} />
