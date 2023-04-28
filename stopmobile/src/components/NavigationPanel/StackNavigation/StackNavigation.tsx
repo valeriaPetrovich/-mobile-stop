@@ -8,6 +8,7 @@ import RegistrationLogin from '../../../pages/Registration/RegistrationLogin/Reg
 import RegistrationLocation from '../../../pages/Registration/RegistrationLoction/RegistrationLocation';
 import RegistrationPassword from '../../../pages/Registration/RegistrationPassword/RegistrationPassword';
 import SuccessfulRegistraion from '../../../pages/Registration/SuccessfulRegistraion/SuccessfulRegistraion';
+import SettingsProfile from '../../../pages/Profile/SettingsProfile/SettingsProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ function StackNavigation() {
       <Stack.Screen name="SuccessfulRegistraion" component={SuccessfulRegistraion} />
       <Stack.Screen name="Tabs" component={TabsNavigation} />
       <Stack.Screen name="Parking" component={Parking} />
+      <Stack.Screen name="SettingsProfile" component={SettingsProfile} />
     </Stack.Navigator>
   );
 }

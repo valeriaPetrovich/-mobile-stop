@@ -2,9 +2,7 @@ import React from 'react';
 import styles from './Profile.style';
 import {
   View,
-  Text,
   ScrollView,
-  Button,
   TouchableOpacity,
   Image,
 } from 'react-native';
@@ -15,7 +13,7 @@ import useFavorite from '../../../hooks/useFavorite';
 
 const profileImg = require('../../../assets/logo/Profile.png');
 
-function Profile() {
+function Profile({navigation}) {
  
     const {favorites}=useFavorite();
 
@@ -23,11 +21,15 @@ function Profile() {
         return <RegistrationTitle children={`${e.name}`} key={Math.random()}/>
     })
 
+    const pressSetting = () =>{
+      navigation.navigate('SettingsProfile')
+    }
+
   return (
     <View style={styles.ProfilePage}>
       <View style={styles.SettingsProfile}>
         <Image source={profileImg} style={styles.ImgProfile} />
-        <TouchableOpacity style={styles.SettingsLink}>
+        <TouchableOpacity style={styles.SettingsLink} onPress={pressSetting} >
           <RegistrationSubTitle children={'Изменить данные ползователя'} />
           <SvgOut style={styles.Icon} />
         </TouchableOpacity>

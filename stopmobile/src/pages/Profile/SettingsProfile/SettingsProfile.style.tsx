@@ -9,33 +9,17 @@ export default StyleSheet.create({
     paddingVertical: 60,
     backgroundColor:'white',
   },
-  SettingsProfile: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 12,
-  },
-  SettingsLink: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 10,
-    alignItems: 'center',
-  },
-  ImgProfile: {
-    width: 100,
-    height: 100,
-  },
-  Icon: {
-    transform: [{rotate: '180deg'}],
-  },
   dataConteiner:{
-    marginTop:90,
   display:'flex',
   gap:30,
   },
   dataUser:{
     display:'flex',
-    flexDirection:'row',
     gap:20,
+  },
+  dropdownContainer:{
+   justifyContent:'flex-end',
+   marginBottom:160,
   }
 
 });

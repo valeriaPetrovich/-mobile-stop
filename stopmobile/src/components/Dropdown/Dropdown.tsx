@@ -1,17 +1,8 @@
-// import React, { useState } from 'react';
-// import { View, Text } from 'react-native';
-
-// const Dropdown = () => {
-
-//   return (
-// <></>
-//   );
-// };
-
-// export default Dropdown;
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity, Modal, ScrollView} from 'react-native';
 import styles from './Dropdown.style';
+import { setSettingProfileCountrySlise } from '../../store/redusers/settingProfileSlice';
+import { useDispatch } from 'react-redux';
 
 const options = [
   {
@@ -28,10 +19,14 @@ const options = [
   },
 ];
 
-const Dropdown = () => {
+const Dropdown = ({className}) => {
+  const dispatch = useDispatch();
   const [isVisible, setIsVisible] = useState(false);
   const [country, setCountry] = useState('');
-  console.log(country);
+  
+  useEffect(()=>{
+ dispatch(setSettingProfileCountrySlise(country));
+  },[country])
 
   return (
     <View>
@@ -43,9 +38,9 @@ const Dropdown = () => {
         </Text>
       </TouchableOpacity>
       <Modal visible={isVisible} transparent={true}>
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={[{flex: 1, justifyContent: 'center', alignItems: 'center'},className]}>
           
-          <View style={styles.ModalConyainer}>
+          <View style={[styles.ModalConyainer]}>
             {options.map(e => (
               <TouchableOpacity
                 key={e.index}

@@ -4,6 +4,7 @@ import searchStopsSlice from './redusers/searchStopsSlice';
 import searchFavoriteSlice from './redusers/searchFavoriteSlice';
 import streetsSlice from './redusers/streetsSlice';
 import favoriteSlice from './redusers/favoriteSlice';
+import settingProfileSlice from './redusers/settingProfileSlice';
 
 const rootReducer = combineReducers({
   login: loginSlice,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   favorite: searchFavoriteSlice,
   streets: streetsSlice,
   favoritesStreets: favoriteSlice,
+  setting: settingProfileSlice,
 });
 
 export const setupStore = () => {
