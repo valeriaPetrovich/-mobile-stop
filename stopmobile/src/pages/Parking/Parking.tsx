@@ -26,7 +26,7 @@ function Parking({route, navigation}) {
                 <SvgOut />
               </TouchableOpacity>
             }
-            logout={<></>}></Header>
+            ></Header>
 
           <View style={styles.parkingBlock}>{parkingItem}</View>
         </View>

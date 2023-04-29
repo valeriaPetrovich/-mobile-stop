@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Favorite.style';
 import {ScrollView, View, TouchableOpacity} from 'react-native';
-import {Input, Text} from 'react-native-elements';
+import {Text} from 'react-native-elements';
 import {useDispatch, useSelector} from 'react-redux';
 import {setSearchFavoriteSlise} from '../../store/redusers/searchFavoriteSlice';
 import useFavorite from '../../hooks/useFavorite';
 import Header from '../../components/Header/Header';
-import ModalWindow from '../../components/Modal/ModalBottom/ModalWindow';
+import TextInput from '../../components/TextInput/TextInput';
 
 function Favorite({navigation}) {
   const [stop, setStop] = useState('');
@@ -36,10 +36,10 @@ function Favorite({navigation}) {
   });
 
   return (
-    <View>
+    <View style={styles.FavoritesPage} >
       <View style={styles.inputBlock}>
-        <Header children={'Favorite'} back={<></>} logout={<ModalWindow />} />
-        <Input placeholder="Choose an address" onChangeText={e => setStop(e)} />
+        <Header children={'Favorite'} back={<></>} />
+        <TextInput children="Введите адресс" onChangeText={e => setStop(e)} errorMessage={''} />
       </View>
       <ScrollView>{stretsItems}</ScrollView>
     </View>

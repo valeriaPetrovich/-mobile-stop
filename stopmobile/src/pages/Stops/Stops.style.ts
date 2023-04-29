@@ -1,6 +1,10 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+  StopsPage:{
+    flex:1,
+    backgroundColor:'white',
+  },
   button: {
 display:'flex',
 flexDirection:'row',

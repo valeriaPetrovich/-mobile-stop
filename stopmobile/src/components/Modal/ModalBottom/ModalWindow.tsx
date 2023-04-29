@@ -1,11 +1,24 @@
-import React, {useCallback, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Alert, Modal, Text, Pressable, View} from 'react-native';
 import styles from './ModalWindowl.style';
-import SvgBurger from '../../../assets/burger';
+import InputButton from '../../Button/InputButton';
 
-const ModalWindow = () => {
+const ModalWindow = ({onPressing}) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [email,setEmail] = useState();
 
+  // useEffect(() => {
+  //   if (!isLoggedIn()) {
+  //     navigation.navigate("LogIn");
+  //   }
+  
+  //   // let session = getSession();
+  //   // setEmail(session.email);
+  
+  //   // console.log("Your access token is: " + session.accessToken);
+  // }, [navigation.navigate]);
+  
+ 
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -26,7 +39,7 @@ const ModalWindow = () => {
             >
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
+              onPress={onPressing}>
               <Text style={styles.textStyle}>Да</Text>
             </Pressable>
             <Pressable
@@ -38,11 +51,7 @@ const ModalWindow = () => {
           </View>
         </View>
       </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}>
-          <Text>Выход</Text>
-      </Pressable>
+      <InputButton children={'Выйти из профиля'} onPress={() => setModalVisible(true)} />
     </View>
   );
 };

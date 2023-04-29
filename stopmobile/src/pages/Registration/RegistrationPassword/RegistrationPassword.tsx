@@ -7,10 +7,13 @@ import RegistrationSubTitle from '../../../components/RegistrationSubTitle/Regis
 import RegistrationTitle from '../../../components/RegistrationTitle/RegistrationTitle';
 import TextInput from '../../../components/TextInput/TextInput';
 import InputButton from '../../../components/Button/InputButton';
+import { useDispatch } from 'react-redux';
+import { setRegistrationPasswordSlise } from '../../../store/redusers/registrationSlice';
 
 const logo = require('../../../assets/logo/MySpace.png');
 
 function RegistrationPassword({navigation}) {
+  const dispatch = useDispatch();
   const [password, setPassword] = useState('');
   const [repedpassword, setRepedPassword] = useState('');
   const [errorPassword, setErrorPassword] = useState(false);
@@ -30,6 +33,7 @@ function RegistrationPassword({navigation}) {
       password !== '' &&
       repedpassword !== ''
     ) {
+      dispatch(setRegistrationPasswordSlise(password));
       setErrorPassword(false);
       setRepedErrorPassword(false);
       navigation.navigate('SuccessfulRegistraion')

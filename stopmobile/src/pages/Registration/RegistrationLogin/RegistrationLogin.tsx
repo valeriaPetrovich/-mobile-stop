@@ -7,8 +7,11 @@ import RegistrationTitle from '../../../components/RegistrationTitle/Registratio
 import RegistrationSubTitle from '../../../components/RegistrationSubTitle/RegistrationSubTitle';
 import InputButton from '../../../components/Button/InputButton';
 import TextInput from '../../../components/TextInput/TextInput';
+import { useDispatch } from 'react-redux';
+import { setRegistrationEmailSlise } from '../../../store/redusers/registrationSlice';
 
 function RegistrationLogin({navigation}) {
+  const dispatch = useDispatch();
   const [login, setLogin] = useState('');
   const [error, setError] = useState(false);
 
@@ -26,6 +29,7 @@ function RegistrationLogin({navigation}) {
     () => {
       const isValid = isValidEmail(login);
       if (login !== '' && isValid) {
+        dispatch(setRegistrationEmailSlise(login));
         navigation.navigate('RegistrationLocation');
         setError(false)
       }

@@ -10,6 +10,8 @@ import RegistrationTitle from '../../../components/RegistrationTitle/Registratio
 import RegistrationSubTitle from '../../../components/RegistrationSubTitle/RegistrationSubTitle';
 import SvgOut from '../../../assets/out';
 import useFavorite from '../../../hooks/useFavorite';
+import ModalWindow from '../../../components/Modal/ModalBottom/ModalWindow';
+import { endSession } from '../../../constant/storage';
 
 const profileImg = require('../../../assets/logo/Profile.png');
 
@@ -25,6 +27,11 @@ function Profile({navigation}) {
       navigation.navigate('SettingsProfile')
     }
 
+    const onLogout = () => {
+      endSession();
+      navigation.navigate("LogIn");
+    }
+
   return (
     <View style={styles.ProfilePage}>
       <View style={styles.SettingsProfile}>
@@ -34,6 +41,7 @@ function Profile({navigation}) {
           <SvgOut style={styles.Icon} />
         </TouchableOpacity>
       </View>
+      <ModalWindow onPressing={onLogout} />
       <View style={styles.dataConteiner} >
       <RegistrationTitle children={'Данные пользователя'} />
         <View style={styles.dataUser} >
@@ -53,7 +61,6 @@ function Profile({navigation}) {
           <ScrollView>
             {favoritesItems}
           </ScrollView>
-          
         </View>
       </View>
     </View>

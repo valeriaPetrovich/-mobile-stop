@@ -8,7 +8,7 @@ import SvgBoldStar from '../../assets/boldStar';
 import SvgLightStar from '../../assets/lightStar';
 import useStreets from '../../hooks/useStreets';
 import Header from '../../components/Header/Header';
-import ModalWindow from '../../components/Modal/ModalBottom/ModalWindow';
+import TextInput from '../../components/TextInput/TextInput';
 
 //style={styles.MenuScreenCopywriteText}
 
@@ -31,7 +31,6 @@ function Stops({navigation}) {
     return e.name.toLowerCase().includes(search);
   });
   const stretsItems = filtStatus.map(e => {
-    //setClick(click ? false : true)
     return (
       <TouchableOpacity
         key={Math.random()}
@@ -46,11 +45,10 @@ function Stops({navigation}) {
   });
 
   return (
-    <View>
+    <View style={styles.StopsPage} >
       <View style={styles.inputBlock}>
-        <Header children={'Stops'} back={<></>} logout={<ModalWindow />} />
-        <Input placeholder="Choose an address" onChangeText={e => setStop(e)} />
-        {/* <Button title='input' onPress={(()=>setSrops())} ></Button> */}
+        <Header children={'Stops'} back={<></>} />
+        <TextInput children={'Введите адресс'} onChangeText={e => setStop(e)} errorMessage={''} />
       </View>
       <ScrollView>{stretsItems}</ScrollView>
     </View>
