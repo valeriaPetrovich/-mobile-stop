@@ -7,10 +7,14 @@ import RegistrationSubTitle from '../../../components/RegistrationSubTitle/Regis
 import TextInput from '../../../components/TextInput/TextInput';
 import InputButton from '../../../components/Button/InputButton';
 import Dropdown from '../../../components/Dropdown/Dropdown';
+import { useDispatch } from 'react-redux';
+import { setRegistrationNameSlise } from '../../../store/redusers/registrationSlice';
+
 
 const logo = require('../../../assets/logo/MySpace.png');
 
 function RegistrationLocation({navigation}) {
+  const dispatch = useDispatch();
   const [userName, setUserName] = useState('');
   const [error, setError] = useState(false);
 
@@ -18,6 +22,8 @@ function RegistrationLocation({navigation}) {
     if (userName !== '') {
       setError(false);
       navigation.navigate('RegistrationPassword');
+      dispatch(setRegistrationNameSlise(userName));
+
     } else {
       setError(true);
     }
@@ -34,6 +40,7 @@ function RegistrationLocation({navigation}) {
         />
         <TextInput
           children="Введите своё имя"
+          secureTextEntry={false}
           onChangeText={e => setUserName(e)}
           errorMessage={error ? 'Введите пожалуйста своё имя' : ''}
         />

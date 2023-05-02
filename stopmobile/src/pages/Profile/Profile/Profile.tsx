@@ -1,5 +1,6 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import styles from './Profile.style';
+import { useFocusEffect } from '@react-navigation/native';
 import {
   View,
   ScrollView,
@@ -12,6 +13,8 @@ import SvgOut from '../../../assets/out';
 import useFavorite from '../../../hooks/useFavorite';
 import ModalWindow from '../../../components/Modal/ModalBottom/ModalWindow';
 import { endSession } from '../../../constant/storage';
+import { isLoggedIn } from '../../../constant/storage';
+import { BackHandler } from 'react-native';
 
 const profileImg = require('../../../assets/logo/Profile.png');
 
@@ -31,6 +34,42 @@ function Profile({navigation}) {
       endSession();
       navigation.navigate("LogIn");
     }
+
+    const [checkTab,setChekTab] = useState(false);
+    const checkIfLoggedIn = async () => {
+      const loggedIn = await isLoggedIn();
+      console.log(loggedIn);
+      if (loggedIn) {
+        setChekTab(true);
+      } else {
+        setChekTab(false);
+      }
+    }
+  
+    useEffect(()=>{
+      checkIfLoggedIn();
+    },)
+
+    useFocusEffect(
+      React.useCallback(() => {
+        const backAction = () => {
+          if(checkTab){
+            BackHandler.exitApp();
+            return true;
+          }
+          else{
+            return false;
+          }
+          
+           
+        };
+        BackHandler.addEventListener('hardwareBackPress', backAction);
+        return () => {
+          BackHandler.removeEventListener('hardwareBackPress', backAction);
+        };
+      }, [checkTab,navigation])
+    );
+
 
   return (
     <View style={styles.ProfilePage}>

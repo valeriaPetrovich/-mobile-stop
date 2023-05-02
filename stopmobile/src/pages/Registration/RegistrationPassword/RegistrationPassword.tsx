@@ -58,11 +58,13 @@ function RegistrationPassword({navigation}) {
         children="Введите пароль"
         onChangeText={e => setPassword(e)}
         errorMessage={ errorPassword? 'Введите пароль':''}
+        secureTextEntry={true}
       />
       <TextInput
         children="Повторите пароль"
         onChangeText={e => setRepedPassword(e)}
         errorMessage={errorRepedPassword?'Пароли не совпадают':''}
+        secureTextEntry={true}
       />
       </View>
      <View style={{marginTop: 250}}>

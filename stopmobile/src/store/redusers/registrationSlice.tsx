@@ -3,7 +3,9 @@ import {cloneDeep} from 'lodash';
 
 const initialState = {
 	email: [],
-    password:[]
+    password:[],
+	name:[],
+	country:[],
 };
 
 export const registrationSlice = createSlice({
@@ -16,10 +18,16 @@ export const registrationSlice = createSlice({
 		setRegistrationPasswordSlise: (state, action) => {
 			state.password = cloneDeep(action.payload);
 		},
+		setRegistrationNameSlise: (state, action) => {
+			state.name = cloneDeep(action.payload);
+		},
+		setRegistrationCountrySlise: (state, action) => {
+			state.country = cloneDeep(action.payload);
+		},
 
 	}
 });
 
 export default registrationSlice.reducer;
 
-export const { setRegistrationEmailSlise, setRegistrationPasswordSlise  } = registrationSlice.actions;
+export const { setRegistrationEmailSlise, setRegistrationPasswordSlise,setRegistrationNameSlise,setRegistrationCountrySlise  } = registrationSlice.actions;

@@ -35,11 +35,11 @@ function SettingsProfile() {
       <RegistrationTitle children={' Изменить данные пользователя'} />
         <View style={styles.dataUser} >
           <RegistrationSubTitle children={'Имя'} />
-          <TextInput children={'Лера'} onChangeText={(e)=>setName(e)} errorMessage={''} />
+          <TextInput children={'Лера'} onChangeText={(e)=>setName(e)} errorMessage={''} secureTextEntry={false}/>
         </View>
         <View style={styles.dataUser}>
           <RegistrationSubTitle children={'Email'} />
-          <TextInput children={'lerapetrovic8@gmail.com'} onChangeText={(e)=>setEmail(e)} errorMessage={''} />
+          <TextInput children={'lerapetrovic8@gmail.com'} onChangeText={(e)=>setEmail(e)} errorMessage={''} secureTextEntry={false}/>
         </View>
         <View style={styles.dataUser}>
           <RegistrationSubTitle children={'Город'} />

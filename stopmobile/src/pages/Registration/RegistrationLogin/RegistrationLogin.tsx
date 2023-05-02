@@ -56,6 +56,7 @@ function RegistrationLogin({navigation}) {
         children="Your Email Address"
         onChangeText={e => setLogin(e)}
         errorMessage={ error? 'Вы ввели неверную почту':''}
+        secureTextEntry={false}
         />
       </View>
       <View style={styles.ButtonsContainer}>

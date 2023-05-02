@@ -48,7 +48,7 @@ function Stops({navigation}) {
     <View style={styles.StopsPage} >
       <View style={styles.inputBlock}>
         <Header children={'Stops'} back={<></>} />
-        <TextInput children={'Введите адресс'} onChangeText={e => setStop(e)} errorMessage={''} />
+        <TextInput children={'Введите адресс'} onChangeText={e => setStop(e)} errorMessage={''} secureTextEntry={false}/>
       </View>
       <ScrollView>{stretsItems}</ScrollView>
     </View>

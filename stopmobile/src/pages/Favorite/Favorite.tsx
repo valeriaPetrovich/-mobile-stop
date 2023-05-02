@@ -39,7 +39,7 @@ function Favorite({navigation}) {
     <View style={styles.FavoritesPage} >
       <View style={styles.inputBlock}>
         <Header children={'Favorite'} back={<></>} />
-        <TextInput children="Введите адресс" onChangeText={e => setStop(e)} errorMessage={''} />
+        <TextInput children="Введите адресс" onChangeText={e => setStop(e)} errorMessage={''}  secureTextEntry={false} />
       </View>
       <ScrollView>{stretsItems}</ScrollView>
     </View>

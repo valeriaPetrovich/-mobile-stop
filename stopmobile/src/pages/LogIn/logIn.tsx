@@ -57,12 +57,15 @@ function LogIn({navigation}) {
       <TextInput
         children="Your Email Address"
         onChangeText={e => setEmail(e)}
-        errorMessage={errorEmail ? 'Введите email' : ''}
+        errorMessage={errorEmail ? 'Введите email' : ''
+      }
+      secureTextEntry={false}
       />
       <TextInput
         children="Password"
         onChangeText={e => setPassword(e)}
         errorMessage={errorPassword ? 'Введите пароль' : ''}
+        secureTextEntry={true}
       />
       <InputButton children={'Вход'} onPress={dispatchCreades} />
     </View>
