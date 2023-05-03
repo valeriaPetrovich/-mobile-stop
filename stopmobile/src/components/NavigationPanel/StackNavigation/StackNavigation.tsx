@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useEffect, useCallback} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Parking from '../../../pages/Parking/Parking';
 import TabsNavigation from '../TabsNavigation/TabsNavigation';
@@ -15,19 +15,66 @@ const Stack = createNativeStackNavigator();
 
 
 function StackNavigation() {
-  return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
+
+  const [checkTab,setChekTab] = useState(false);
+  const checkIfLoggedIn = async () => {
+    const loggedIn = await isLoggedIn();
+    console.log(loggedIn);
+    if (loggedIn) {
+      setChekTab(true);
+    } else {
+      setChekTab(false);
+    }
+  }
+
+  useEffect(()=>{
+    checkIfLoggedIn();
+  },)
+
+  const navigator = useCallback(()=>{
+   if(checkTab===true){
+    return(
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Tabs" component={TabsNavigation} />
+      <Stack.Screen name="Parking" component={Parking} />
+      <Stack.Screen name="SettingsProfile" component={SettingsProfile} />
+    </Stack.Navigator>
+    )
+   }
+   else
+   if(checkTab===false){
+    return(
+      <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Input" component={Input} />
       <Stack.Screen name="LogIn" component={LogIn} />
       <Stack.Screen name="RegistrationLogin" component={RegistrationLogin} />
       <Stack.Screen name="RegistrationLocation" component={RegistrationLocation} />
       <Stack.Screen name="RegistrationPassword" component={RegistrationPassword} />
       <Stack.Screen name="SuccessfulRegistraion" component={SuccessfulRegistraion} />
-      <Stack.Screen name="Tabs" component={TabsNavigation} />
-      <Stack.Screen name="Parking" component={Parking} />
-      <Stack.Screen name="SettingsProfile" component={SettingsProfile} />
     </Stack.Navigator>
-  );
+    )
+   }
+  },[checkTab])
+
+  console.log('checkTab',checkTab)
+
+  return navigator();
 }
 
 export default StackNavigation;
+    // checkTab?(
+    //   <Stack.Navigator screenOptions={{headerShown: false}}>
+    //   <Stack.Screen name="Tabs" component={TabsNavigation} />
+    //   <Stack.Screen name="Parking" component={Parking} />
+    //   <Stack.Screen name="SettingsProfile" component={SettingsProfile} />
+    // </Stack.Navigator>
+    // ):(
+    //   <Stack.Navigator screenOptions={{headerShown: false}}>
+    //   <Stack.Screen name="Input" component={Input} />
+    //   <Stack.Screen name="LogIn" component={LogIn} />
+    //   <Stack.Screen name="RegistrationLogin" component={RegistrationLogin} />
+    //   <Stack.Screen name="RegistrationLocation" component={RegistrationLocation} />
+    //   <Stack.Screen name="RegistrationPassword" component={RegistrationPassword} />
+    //   <Stack.Screen name="SuccessfulRegistraion" component={SuccessfulRegistraion} />
+    // </Stack.Navigator>
+    // )

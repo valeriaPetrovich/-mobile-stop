@@ -32,13 +32,12 @@ function Profile({navigation}) {
 
     const onLogout = () => {
       endSession();
-      navigation.navigate("LogIn");
+     // navigation.navigate("LogIn");
     }
 
     const [checkTab,setChekTab] = useState(false);
     const checkIfLoggedIn = async () => {
       const loggedIn = await isLoggedIn();
-      console.log(loggedIn);
       if (loggedIn) {
         setChekTab(true);
       } else {
@@ -48,7 +47,7 @@ function Profile({navigation}) {
   
     useEffect(()=>{
       checkIfLoggedIn();
-    },)
+    })
 
     useFocusEffect(
       React.useCallback(() => {

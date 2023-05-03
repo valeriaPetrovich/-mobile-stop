@@ -35,6 +35,7 @@ export const endSession = async () => {
 export const isLoggedIn = async () => {
   try {
     const accessToken = await AsyncStorage.getItem('accessToken');
+    // console.log(accessToken);
     if (accessToken !== null) {
       return true;
     } else {

@@ -41,7 +41,7 @@ function LogIn({navigation}) {
     // console.log(loginResponse);
     dispatch(setEmailSlise(email));
     dispatch(setPasswordSlise(password));
-    navigation.navigate('Tabs');
+    //navigation.navigate('Tabs');
     setErrorPassword(false);
     setErrorEmail(false);
   };
