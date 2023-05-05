@@ -6,7 +6,8 @@ import {setEmailSlise, setPasswordSlise} from '../../store/redusers/loginSlice';
 import InputButton from '../../components/Button/InputButton';
 import TextInput from '../../components/TextInput/TextInput';
 import {signInUser} from '../../constant/firebase';
-import { startSession } from '../../constant/storage';
+import { startSession,isLoggedIn } from '../../constant/storage';
+import { setloginCheckSlise } from '../../store/redusers/logInCheckCSlice';
 
 const logo = require('../../assets/logo/MySpace.png');
 
@@ -17,8 +18,17 @@ function LogIn({navigation}) {
   const [errorEmail, setErrorEmail] = useState(false);
   const dispatch = useDispatch();
 
-  const dispatchCreades = async () => {
+  const checkIfLoggedIn = async () => {
+    try {
+      const loggedIn = await isLoggedIn();
+      dispatch(setloginCheckSlise(loggedIn))
+    } catch (error) {
+      console.error(`Error checking session: ${error}`);
+    }
+  };
 
+
+  const dispatchCreades = async () => {
       if(password==='' && email==='')
       {
         setErrorEmail(true);
@@ -38,12 +48,11 @@ function LogIn({navigation}) {
       }
     let loginResponse = await signInUser(email, password);
     startSession(loginResponse.user);
-    // console.log(loginResponse);
     dispatch(setEmailSlise(email));
     dispatch(setPasswordSlise(password));
-    //navigation.navigate('Tabs');
     setErrorPassword(false);
     setErrorEmail(false);
+    checkIfLoggedIn();
   };
 
   useEffect(() => {

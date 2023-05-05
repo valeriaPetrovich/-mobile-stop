@@ -1,5 +1,4 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import { AsyncStorage } from 'react-native';
 
 export const startSession = async (user: any) => {
   try {
@@ -35,7 +34,6 @@ export const endSession = async () => {
 export const isLoggedIn = async () => {
   try {
     const accessToken = await AsyncStorage.getItem('accessToken');
-    // console.log(accessToken);
     if (accessToken !== null) {
       return true;
     } else {

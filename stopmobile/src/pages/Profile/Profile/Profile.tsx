@@ -15,12 +15,15 @@ import ModalWindow from '../../../components/Modal/ModalBottom/ModalWindow';
 import { endSession } from '../../../constant/storage';
 import { isLoggedIn } from '../../../constant/storage';
 import { BackHandler } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { setloginCheckSlise } from '../../../store/redusers/logInCheckCSlice';
 
 const profileImg = require('../../../assets/logo/Profile.png');
 
 function Profile({navigation}) {
  
     const {favorites}=useFavorite();
+    const dispatch = useDispatch();
 
     const favoritesItems = favorites.map((e)=>{
         return <RegistrationTitle children={`${e.name}`} key={Math.random()}/>
@@ -30,24 +33,21 @@ function Profile({navigation}) {
       navigation.navigate('SettingsProfile')
     }
 
-    const onLogout = () => {
-      endSession();
-     // navigation.navigate("LogIn");
-    }
-
     const [checkTab,setChekTab] = useState(false);
     const checkIfLoggedIn = async () => {
       const loggedIn = await isLoggedIn();
+      dispatch(setloginCheckSlise(loggedIn));
       if (loggedIn) {
         setChekTab(true);
       } else {
         setChekTab(false);
       }
     }
-  
-    useEffect(()=>{
+
+    const onLogout = async () => {
+      endSession();
       checkIfLoggedIn();
-    })
+    }
 
     useFocusEffect(
       React.useCallback(() => {

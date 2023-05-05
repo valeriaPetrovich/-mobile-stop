@@ -5,19 +5,6 @@ import InputButton from '../../Button/InputButton';
 
 const ModalWindow = ({onPressing}) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [email,setEmail] = useState();
-
-  // useEffect(() => {
-  //   if (!isLoggedIn()) {
-  //     navigation.navigate("LogIn");
-  //   }
-  
-  //   // let session = getSession();
-  //   // setEmail(session.email);
-  
-  //   // console.log("Your access token is: " + session.accessToken);
-  // }, [navigation.navigate]);
-  
  
   return (
     <View style={styles.centeredView}>
