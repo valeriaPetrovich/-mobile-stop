@@ -9,7 +9,7 @@ import RegistrationLocation from '../../../pages/Registration/RegistrationLoctio
 import RegistrationPassword from '../../../pages/Registration/RegistrationPassword/RegistrationPassword';
 import SuccessfulRegistraion from '../../../pages/Registration/SuccessfulRegistraion/SuccessfulRegistraion';
 import SettingsProfile from '../../../pages/Profile/SettingsProfile/SettingsProfile';
- import {isLoggedIn } from '../../../constant/storage'; 
+//import {isLoggedIn } from '../../../constant/storage'; 
 import { useSelector } from 'react-redux';
 
 const Stack = createNativeStackNavigator();

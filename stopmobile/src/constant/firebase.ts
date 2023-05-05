@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { Alert } from "react-native";
 
 // import {
 //   getFirestore,
@@ -23,9 +24,9 @@ const firebaseConfig = {
   export const createUser = async (email:any, password:any) => {
     return createUserWithEmailAndPassword(getAuth(firebaseApp), email, password);
   }
-  
+
   export const signInUser = async (email:any, password:any) => {
-    return signInWithEmailAndPassword(getAuth(firebaseApp), email, password);
+      return signInWithEmailAndPassword(getAuth(firebaseApp), email, password); 
   }
 
   // const db = getFirestore(firebaseApp);

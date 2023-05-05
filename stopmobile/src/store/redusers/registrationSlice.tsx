@@ -5,6 +5,7 @@ const initialState = {
 	email: [],
     password:[],
 	name:[],
+	carNumber:[],
 	country:[],
 };
 
@@ -21,6 +22,9 @@ export const registrationSlice = createSlice({
 		setRegistrationNameSlise: (state, action) => {
 			state.name = cloneDeep(action.payload);
 		},
+		setRegistrationCarNumberSlise: (state, action) => {
+			state.carNumber = cloneDeep(action.payload);
+		},
 		setRegistrationCountrySlise: (state, action) => {
 			state.country = cloneDeep(action.payload);
 		},
@@ -30,4 +34,4 @@ export const registrationSlice = createSlice({
 
 export default registrationSlice.reducer;
 
-export const { setRegistrationEmailSlise, setRegistrationPasswordSlise,setRegistrationNameSlise,setRegistrationCountrySlise  } = registrationSlice.actions;
+export const { setRegistrationEmailSlise, setRegistrationPasswordSlise,setRegistrationNameSlise,setRegistrationCountrySlise,setRegistrationCarNumberSlise  } = registrationSlice.actions;

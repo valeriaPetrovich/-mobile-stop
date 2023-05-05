@@ -10,4 +10,13 @@ export default StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
   },
+  titleLink:{
+    alignSelf:'center',
+  },
+  linlView:{
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'center',
+    gap:15,
+  }
 });

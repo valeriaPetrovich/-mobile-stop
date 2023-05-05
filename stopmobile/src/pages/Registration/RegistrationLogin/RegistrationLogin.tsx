@@ -9,6 +9,7 @@ import InputButton from '../../../components/Button/InputButton';
 import TextInput from '../../../components/TextInput/TextInput';
 import { useDispatch } from 'react-redux';
 import { setRegistrationEmailSlise } from '../../../store/redusers/registrationSlice';
+import RegistrationHeader from '../RegisrationHeader/RegisrationHeader';
 
 function RegistrationLogin({navigation}) {
   const dispatch = useDispatch();
@@ -40,11 +41,9 @@ function RegistrationLogin({navigation}) {
     [login],
   );
 
-  const logo = require('../../../assets/logo/MySpace.png');
-
   return (
     <View style={mainStyles.Container}>
-      <Image source={logo} />
+      <RegistrationHeader onPress={() => navigation.goBack()} />
       <View style={mainStyles.TextContainer}>
         <RegistrationTitle children={'Зарегистрироваться в MySpace'} />
         <RegistrationSubTitle

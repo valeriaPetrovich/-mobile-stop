@@ -7,7 +7,6 @@ import RegistrationTitle from '../../../components/RegistrationTitle/Registratio
 import InputButton from '../../../components/Button/InputButton';
 import { useSelector } from 'react-redux';
 import { createUser } from '../../../constant/firebase';
-import { startSession } from '../../../constant/storage';
 
 const funImage = require('../../../assets/logo/Successful.png');
 
@@ -18,9 +17,9 @@ function SuccessfulRegistraion({navigation}) {
 
 const pressInput = async () => {
     let registerResponse = await createUser(registrationEmail, registrationPassword);
-    startSession(registerResponse.user);
-    navigation.navigate('Tabs');
-    //navigation.navigate('LogIn');
+    navigation.navigate('LogIn');
+
+
 }
 
   return (

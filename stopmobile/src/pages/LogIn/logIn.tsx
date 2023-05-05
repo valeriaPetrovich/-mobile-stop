@@ -1,6 +1,7 @@
 import React, {useState, useCallback, useEffect} from 'react';
 import styles from './logIn.styles';
-import {View, Image} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
+import RegistrationSubTitle from '../../components/RegistrationSubTitle/RegistrationSubTitle';
 import {useDispatch, useSelector} from 'react-redux';
 import {setEmailSlise, setPasswordSlise} from '../../store/redusers/loginSlice';
 import InputButton from '../../components/Button/InputButton';
@@ -8,6 +9,7 @@ import TextInput from '../../components/TextInput/TextInput';
 import {signInUser} from '../../constant/firebase';
 import { startSession,isLoggedIn } from '../../constant/storage';
 import { setloginCheckSlise } from '../../store/redusers/logInCheckCSlice';
+import { Text } from 'react-native-elements';
 
 const logo = require('../../assets/logo/MySpace.png');
 
@@ -26,6 +28,10 @@ function LogIn({navigation}) {
       console.error(`Error checking session: ${error}`);
     }
   };
+
+  const pressRegistration = () =>{
+    navigation.navigate('RegistrationLogin')
+  }
 
 
   const dispatchCreades = async () => {
@@ -77,6 +83,10 @@ function LogIn({navigation}) {
         secureTextEntry={true}
       />
       <InputButton children={'Вход'} onPress={dispatchCreades} />
+      <View style={styles.linlView} >
+      <RegistrationSubTitle children={'Не были авторизованы в системе?'} className={styles.titleLink} />
+      <TouchableOpacity onPress={pressRegistration} ><Text>Зарегистрироваться</Text></TouchableOpacity>
+      </View>
     </View>
   );
 }
